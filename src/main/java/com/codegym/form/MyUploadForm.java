@@ -4,7 +4,15 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class MyUploadForm {
     private String description;
-    private CommonsMultipartFile [] fileDatas;
+    private CommonsMultipartFile[] fileDatas;
+
+    public MyUploadForm() {
+    }
+
+    public MyUploadForm(String description, CommonsMultipartFile[] fileDatas) {
+        this.description = description;
+        this.fileDatas = fileDatas;
+    }
 
     public String getDescription() {
         return description;

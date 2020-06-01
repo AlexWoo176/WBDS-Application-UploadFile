@@ -1,3 +1,5 @@
+package config;
+
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -13,19 +15,16 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan("com.codegym.controller")
 public class AppConfiguration implements ApplicationContextAware {
     private ApplicationContext applicationContext;
-
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
-
     @Bean
     public InternalResourceViewResolver resourceViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setApplicationContext(applicationContext);
-        viewResolver.setPrefix("WEB-INF/views/");
+        viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
-
     }
 }
